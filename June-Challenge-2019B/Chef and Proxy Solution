@@ -1,0 +1,38 @@
+import math
+while True:
+    try:
+        t = input()
+        for j in range(int(t)):
+            D = int(input())
+            s = input()
+            list1 = list(s)
+            #print(list1)
+            l = list1.count('P')
+            required_p = math.ceil(0.75 * D)
+            #print(required_p)
+            req_proxy = required_p - l
+            #print(req_proxy)
+            cnt = 0
+            if req_proxy<=0:
+                print("0")
+            else:
+                for i in range(2,len(list1)-2,1):
+                #print("i: ",i)
+                    if list1[i] == str('A'):
+                        if((list1[i-1] == str('P')) or (list1[i-2] == str('P'))):
+                            if ((list1[i + 1] == str('P')) or (list1[i + 2] == str('P'))):
+                                cnt += 1
+                                if(cnt == req_proxy):
+                                    break
+                            else:
+                                continue
+                        else:
+                            continue
+                    else:
+                        continue
+                if(cnt<req_proxy):
+                    print("-1")
+                else:
+                    print(cnt)
+    except:
+        break
