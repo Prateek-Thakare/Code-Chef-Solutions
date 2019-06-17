@@ -1,0 +1,20 @@
+# cook your dish here
+import math
+while True:
+    try:
+        t = input()
+        for j in range(int(t)):
+            n = input()
+            list1 = list(n)
+            temp = 0
+            for i in range(len(list1)):
+                temp += int(list1[i])
+            temp = temp % 10
+            if(temp != 0):
+                temp = 10 - temp
+            list1.append(str(temp))
+            answer = ''.join(list1)
+            print(answer)
+
+    except:
+        break
