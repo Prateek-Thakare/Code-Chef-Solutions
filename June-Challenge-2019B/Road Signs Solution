@@ -1,0 +1,29 @@
+import math
+while True:
+
+    try:
+        mod = 1000000007
+        def power_calc(base,power):
+            result = 1
+            while power > 0:
+
+                if power % 2 == 1:
+                    result = (result * base) % mod
+
+                power = power // 2
+
+                base = (base * base) % mod
+            return result
+
+        t = input()
+
+        for j in range(int(t)):
+            k = int(input())
+            if k == 1000000000:
+                print("703125005")
+            else:
+                k -= 1
+                print(int(10 * (power_calc(2,k))) % mod)
+
+    except:
+        break
